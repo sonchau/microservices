@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: comments
-          image: stephengrider/comments
+          image: sonchau24/comments
 ---
 apiVersion: v1
 kind: Service

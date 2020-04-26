@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: query-depl
+  name: clients-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: query
+      app: clients
   template:
     metadata:
       labels:
-        app: query
+        app: clients
     spec:
       containers:
-        - name: query
-          image: sonchau24/query
+        - name: clients
+          image: sonchau24/clients
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: query-srv
+  name: clients-srv
 spec:
   selector:
-    app: query
+    app: clients
   ports:
-    - name: query
+    - name: clients
       protocol: TCP
-      port: 4002
-      targetPort: 4002
+      port: 3000
+      targetPort: 30000
