@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: clients-depl
+  name: client-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: clients
+      app: client
   template:
     metadata:
       labels:
-        app: clients
+        app: client
     spec:
       containers:
-        - name: clients
-          image: sonchau24/clients
+        - name: client
+          image: sonchau24/client
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: clients-srv
+  name: client-srv
 spec:
   selector:
-    app: clients
+    app: client
   ports:
-    - name: clients
+    - name: client
       protocol: TCP
       port: 3000
-      targetPort: 30000
+      targetPort: 3000
